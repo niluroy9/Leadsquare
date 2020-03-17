@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .button-play {
+                background-color: #2c87f0;
+                border: none;
+                color: white;
+                padding: 4px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 10px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .button-stop {
+                background-color: #DCDCDC;
+                border: none;
+                color: black;
+                padding: 4px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 10px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            </style>
+    </head>
+<body>
+<center>
+    <h3>Hit the circle</h3>
+    <p>Test your skill how many circles you can hit?</p>
+</center>
+
+<div style="margin-left: 50%;">
+    
+        <label for="score">Score</label>
+        <input type="text" id="score" name="score" size="4">  
+</div><br>
+
+<form>
+<center>
+    <hr style="width: 30%;">
+    <div style="">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" id="r1">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+    </div>
+    <div>
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+    </div>
+    <div>
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+    </div>
+    <div>
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+    </div>
+    <div>
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+    </div>
+    <div>
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+        <input type="radio" value="incorrect" onclick="updateScore(this.value)">
+        <input type="radio" value="correct" onclick="updateScore(this.value)">
+    </div>
+    <hr style="width: 30%;">
+</center>
+<center>
+    <div>
+        <button type="button" class="button-play" onclick="play()">Play</button>
+        <button type="button" class="button-stop" onclick="myScore()">Stop</button>
+    </div>
+</center>
+</form>
+<div style="width: 28%; margin-left: 38%;">
+    <p >
+        Instruction:<br>
+        1. Click on the circles as they are selected randomnly by the computer<br>
+        2. 1 point per hit, minus 1 per miss.
+    </p>
+</div>
+
+<script>
+    let totalScore = 1;
+    var score = document.getElementById('score');
+    score.value = 0;
+
+    function updateScore(val) {
+        if(val == "correct") {
+            var score = document.getElementById('score');
+            score.value = parseInt(score.value) + 1;
+            totalScore = score.value; 
+        } else {
+            var score = document.getElementById('score');
+            score.value = parseInt(score.value) - 1;
+            totalScore = score.value;
+        }
+    }
+
+    function play() {
+        var score = document.getElementById('score');
+        score.value = 0;
+        document.getElementById("r1").checked = true;
+        score.value = parseInt(score.value) + 1;         
+    }
+
+    function myScore() {
+        alert('"Your final score is ' + totalScore + '"');
+        window.location.reload();
+    }
+</script>
+</body>
+</html>
